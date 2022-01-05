@@ -33,7 +33,7 @@ const ChartBar= (props) =>{
                     
                     {
              channelIds.map((id) => {
-                return (<Bar  dataKey={props.chartdata.bars[id].barKey} fill={props.chartdata.bars[id].stroke} />)
+                return (<Bar  dataKey={props.chartdata.bars[id].barKey} fill={props.chartdata.bars[id].stroke} key={id} />)
             })
   }
                     
