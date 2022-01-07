@@ -20,7 +20,7 @@ const ChartStackedBar = (props) => {
             <h1 className="text-heading">
                 Bar Chart Using Rechart
             </h1>
-            <ResponsiveContainer width="100%" aspect={3}>
+            <ResponsiveContainer width="80%" aspect={3}>
                 <BarChart width={500} height={300} data={props.chartdata.data}>
                     <XAxis dataKey={props.chartdata.xAxisKey} />
                     <YAxis label={{ value: props.chartdata.yAxisLabel, angle: -90, position: 'insideLeft' }}></YAxis>

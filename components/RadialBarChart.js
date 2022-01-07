@@ -15,7 +15,7 @@ const ChartRadialBar = (props) => {
             <h1 className="text-heading">
                 Radial Bar Chart Using Rechart
             </h1>
-            <ResponsiveContainer width="100%" aspect={3}>
+            <ResponsiveContainer width="80%" aspect={3}>
 
                 <RadialBarChart data={props.chartdata.data} width={730} height={250} innerRadius="10%" outerRadius="80%" startAngle={180} endAngle={0}>
 

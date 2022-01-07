@@ -15,7 +15,7 @@ const ChartPie= (props) =>{
                 No of users accessing different surveys
             </h1>
              <ResponsiveContainer width="100%" aspect={3}>
-                 <PieChart margin={{ right: 300, top:10 }}>
+                 <PieChart >
                     
                     <Legend  layout="vertical" verticalAlign="top" align="right"  />
                     <Tooltip />

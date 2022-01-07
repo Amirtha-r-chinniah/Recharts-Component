@@ -14,15 +14,15 @@ function lineChartData({ router: { query } }) {
   if (query.chart == 'Line') {
     const lineChartData =
     {
-      xAxisKey: 'month',
+      xAxisKey: 'year',
       yAxisLabel: 'No of Logins',
-      xAxisLabel: 'Months',
-      lines: [{ lineKey: 'CareerInsight', stroke: 'blue' }, { lineKey: 'ProgramInsight', stroke: 'green' }],
+      xAxisLabel: 'Year',
+      lines: [{ lineKey: 'Explore', stroke: '#5CB85C' }, { lineKey: 'Validate', stroke: '#6136AB' }, { lineKey: 'Portfolio', stroke: '#003F5C' }],
       data: [
-        { month: 'April', ProgramInsight: 85, CareerInsight: 60 },
-        { month: 'May', ProgramInsight: 50, CareerInsight: 98 },
-        { month: 'June', ProgramInsight: 75, CareerInsight: 55 },
-        { month: 'July', ProgramInsight: 30, CareerInsight: 48 }
+        { year: '2021', Explore: 85, Validate: 60, Portfolio:10 },
+        { year: '2020', Explore: 55, Validate: 10, Portfolio:0 },
+        { year: '2019', Explore: 25, Validate: 60, Portfolio:30},
+        { year: '2018', Explore: 65, Validate: 20, Portfolio:23}
       ]
     };
     return (<>
@@ -55,7 +55,7 @@ function lineChartData({ router: { query } }) {
     {
       xAxisKey: 'validatePage',
       yAxisLabel:'No Of PDF Exports',
-      bars: [{ barKey: 'TexasUniversity', stroke: 'black' }, { barKey: 'DalhoussieUniversity', stroke: 'red' }],
+      bars: [{ barKey: 'TexasUniversity', stroke: '#5CB85C' }, { barKey: 'DalhoussieUniversity', stroke: '#6136AB' }],
       data: [
         { validatePage: "Employment Potential", TexasUniversity: 30, DalhoussieUniversity: 70 },
         { validatePage: "Competitor Landscape", TexasUniversity: 12, DalhoussieUniversity: 88 },
@@ -74,7 +74,7 @@ function lineChartData({ router: { query } }) {
     {
       xAxisKey: 'validatePage',
       yAxisLabel:'No Of PDF Exports',
-      bars: [{ barKey: 'TexasUniversity', stroke: 'black' }, { barKey: 'DalhoussieUniversity', stroke: 'red' }],
+      bars: [{ barKey: 'TexasUniversity', stroke: '#5CB85C' }, { barKey: 'DalhoussieUniversity', stroke: '#6136AB' }],
       stackId:'A',
       data: [
         { validatePage: "Employment Potential", TexasUniversity: 30, DalhoussieUniversity: 70 },
@@ -95,9 +95,9 @@ function lineChartData({ router: { query } }) {
       outerRadius: "250",
       dataPlotterKey: "users",
       data: [
-        { name: 'AdultSurvey', users: 400, fill: 'green' },
-        { name: 'HybridSurvey', users: 700, fill: 'red' },
-        { name: 'TraditionalSurvey', users: 1000, fill: 'brown' }
+        { name: 'AdultSurvey', users: 400, fill: '#003F5C' },
+        { name: 'HybridSurvey', users: 700, fill: '#5CB85C' },
+        { name: 'TraditionalSurvey', users: 1000, fill: '#6136AB' }
       ]
     };
     return (<>
@@ -111,9 +111,9 @@ function lineChartData({ router: { query } }) {
       outerRadius: "250",
       dataPlotterKey: "users",
       data: [
-        { name: 'AdultSurvey', users: 400, fill: 'green' },
-        { name: 'HybridSurvey', users: 700, fill: 'red' },
-        { name: 'TraditionalSurvey', users: 1000, fill: 'brown' }
+        { name: 'AdultSurvey', users: 400, fill: '#003F5C' },
+        { name: 'HybridSurvey', users: 700, fill: '#5CB85C' },
+        { name: 'TraditionalSurvey', users: 1000, fill: '#6136AB' }
       ]
     };
     return (<>
@@ -124,33 +124,34 @@ function lineChartData({ router: { query } }) {
   else if (query.chart == 'Scatter') {
     const scatterChartData =
     {
-      color:[{fillcolor:'blue'},{fillcolor:'green'}],
+      color:[{fillcolor:'#5CB85C'},{fillcolor:'#6136AB'}],
       yAxisLabel:'login count',
       scatterKeyXAxis: 'Year' ,
       scatterKeyYAxis: 'loginCount',
+      scatterKeyZAxis: 'activeUsers',
       scatterNames:[{scatterName:"ProgramInsight"},{scatterName:"CareerInsight"}],
       data:[    
         [       
-        {  loginCount: 100, Year: 2022 },
-        {  loginCount: 250, Year: 2021 },
-        {  loginCount: 320, Year: 2020 },
-        {  loginCount: 120, Year: 2019 },
-        {  loginCount: 0, Year: 2018 },
-        {  loginCount: 50, Year: 2017 },
-        {  loginCount: 70, Year: 2016 },
-        {  loginCount: 8, Year: 2015 },
-        {  loginCount: 0, Year: 2014 },
+        {  loginCount: 100, Year: 2022, activeUsers: 100 },
+        {  loginCount: 250, Year: 2021, activeUsers: 10},
+        {  loginCount: 320, Year: 2020, activeUsers: 2500 },
+        {  loginCount: 120, Year: 2019, activeUsers: 70 },
+        {  loginCount: 0, Year: 2018, activeUsers: 8 },
+        {  loginCount: 50, Year: 2017, activeUsers: 70 },
+        {  loginCount: 70, Year: 2016, activeUsers: 60 },
+        {  loginCount: 8, Year: 2015, activeUsers: 10 },
+        {  loginCount: 0, Year: 2014, activeUsers: 10 },
       ],
       [
-        {  loginCount: 50, Year: 2022 },
-        {  loginCount: 20, Year: 2021 },
-        {  loginCount: 30, Year: 2020 },
-        {  loginCount: 120, Year: 2019 },
-        {  loginCount: 100, Year: 2018 },
-        {  loginCount: 500, Year: 2017 },
-        {  loginCount: 7, Year: 2016 },
-        {  loginCount: 80, Year: 2015 },
-        {  loginCount: 200, Year: 2014 },
+        {  loginCount: 50, Year: 2022, activeUsers: 100 },
+        {  loginCount: 20, Year: 2021, activeUsers: 80 },
+        {  loginCount: 30, Year: 2020, activeUsers: 60 },
+        {  loginCount: 120, Year: 2019, activeUsers: 220 },
+        {  loginCount: 100, Year: 2018, activeUsers: 200 },
+        {  loginCount: 500, Year: 2017, activeUsers: 700 },
+        {  loginCount: 7, Year: 2016, activeUsers: 10 },
+        {  loginCount: 80, Year: 2015, activeUsers: 100 },
+        {  loginCount: 200, Year: 2014, activeUsers: 120 },
         
       ]
       ]
@@ -181,32 +182,32 @@ function lineChartData({ router: { query } }) {
     {
       name: 'College',
       dataPlotterKey: "value",
-      funnelLabel:"name",
+      funnelLabel:"programName",
       data: [
 
         {
           "value": 100,
-          "name": "Software Engineer",
+          "programName": "Software Engineer",
           "fill": "#8884d8"
         },
         {
           "value": 80,
-          "name": "Data Engineer",
+          "programName": "Data Engineer",
           "fill": "#83a6ed"
         },
         {
           "value": 50,
-          "name": "HR",
+          "programName": "HR",
           "fill": "#8dd1e1"
         },
         {
           "value": 40,
-          "name": "Support Engineer",
+          "programName": "Support Engineer",
           "fill": "#82ca9d"
         },
         {
           "value": 1,
-          "name": "Nursing",
+          "programName": "Nursing",
           "fill": "#a4de6c"
         }
 

@@ -20,8 +20,9 @@ const ChartArea = (props) => {
             <h1 className="text-heading">
                 Area Chart Using Rechart
             </h1>
-            <ResponsiveContainer width="100%" aspect={3}>
+            <ResponsiveContainer width="80%" aspect={3}>
                 <AreaChart data={props.chartdata.data} width={320} height={250}>
+             
                     <XAxis dataKey={props.chartdata.xAxisKey} />
                     <YAxis label={{ value: props.chartdata.yAxisLabel, angle: -90, position: 'insideLeft' }} ></YAxis>
                     <Legend />
