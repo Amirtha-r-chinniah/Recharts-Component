@@ -1,24 +1,55 @@
 import Link from "next/link"
-export default function Home( ) {
+import styles from "../styles/Home.module.css"
+export default function Home() {
   return (
     <>
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Line"}}}>1. LineChart</Link>   
-      <br></br>
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Area"}}}><a>2. AreaChart</a></Link>   
-      <br></br>
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Bar"}}}><a>3. BarChart</a></Link> 
-      <br></br> 
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Composed"}}}><a>4. ComposedChart</a></Link> 
-      <br></br> 
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Scatter"}}}><a>5. ScatterChart</a></Link> 
-      <br></br> 
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Pie"}}}><a>6. PieChart</a></Link> 
-      <br></br> 
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Radar"}}}><a>7. RadarChart</a></Link> 
-      <br></br> 
-      <Link href={{pathname:'/chartnavigator', query:{chart: "RadialBar"}}}><a>8. RadialChart</a></Link> 
-      <br></br> 
-      <Link href={{pathname:'/chartnavigator', query:{chart: "Funnel"}}}><a>9. FunnelChart</a></Link> 
-      <br></br></>
+
+      <div className={styles.outercontainer}>
+        <div className={styles.container}>
+          <div className={styles.header}>Recharts POC</div>
+          <br></br>
+          <table className={styles.table}>
+            <tbody>
+              <tr className={styles.tr}>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "Line" } }}>LineChart</Link>
+                </td>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "Area" } }}>AreaChart</Link>
+                </td>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "Bar" } }}>BarChart</Link>
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr className={styles.tr}>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "Pie" } }}>PieChart</Link>
+                </td>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "Scatter" } }}>ScatterChart</Link>
+                </td>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "Donut" } }}>DonutChart</Link>
+                </td></tr>
+            </tbody>
+            <tbody>
+              <tr className={styles.tr}>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "RadialBar" } }}> RadialBarChart</Link>
+                </td>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "StackedBar" } }}> StackedBarChart</Link>
+                </td>
+                <td className={styles.td}>
+                  <Link href={{ pathname: '/chartnavigator', query: { chart: "Funnel" } }}> FunnelChart</Link>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div></>
   )
 }

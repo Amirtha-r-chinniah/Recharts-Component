@@ -1,33 +1,43 @@
 import React from 'react';
 import {
-	ScatterChart,
-	ResponsiveContainer,
-	Legend, Tooltip,
-	Scatter,
-	XAxis,
-	YAxis,
-	CartesianGrid
+    ScatterChart,
+    ResponsiveContainer,
+    Legend, Tooltip,
+    Scatter,
+    XAxis,
+    YAxis
 } from 'recharts';
 
-const ChartScatter= (props) =>{
-    return(
-		<>
+const ChartScatter = (props) => {
+    // Logic for no of channel scatters creation
+    var channelIds = [];
+    const noOfScatters = props.chartdata.data.length;
+    for (var count = 0; count < noOfScatters; count++) {
+        channelIds.push(count.toString());
+    }
+    return (
+        <>
             <h1 className="text-heading">
                 Scatter Chart Using Rechart
             </h1>
-             <ResponsiveContainer width="100%" aspect={3}>
-                 <ScatterChart  margin={{ right: 300 }}>
-                    <CartesianGrid strokeDasharray="3 3" />
+            <ResponsiveContainer width="100%" aspect={3}>
+                <ScatterChart >
                     <Tooltip />
-                    
-                    <XAxis type="number" dataKey={props.chartdata.scatterKeyXAxis} />
-                    <YAxis type="number" dataKey={props.chartdata.scatterKeyYAxis} />
-                    <Scatter data={props.chartdata.data} fill={props.chartdata.fillColor} />
-                    
-                </ScatterChart> 
-            </ResponsiveContainer>  
+                    <Legend></Legend>
+                    <XAxis dataKey={props.chartdata.scatterKeyXAxis} />
+                    <YAxis label={{ value: props.chartdata.yAxisLabel, angle: -90, position: 'insideLeft' }} dataKey={props.chartdata.scatterKeyYAxis} />
+                    {
+                        channelIds.map((id) => {
+                            return (<Scatter data={props.chartdata.data[id]} name={props.chartdata.scatterNames[id].scatterName} fill={props.chartdata.color[id].fillcolor} key={id} />)
+                        })
+                    }
+
+
+
+                </ScatterChart>
+            </ResponsiveContainer>
         </>
-	);
+    );
 }
 
 export default ChartScatter

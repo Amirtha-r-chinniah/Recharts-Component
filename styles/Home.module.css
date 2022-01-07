@@ -1,0 +1,24 @@
+.container {
+  padding:10%;
+  margin-top:0%;
+  background-color:#96D4D4;
+}
+
+.outercontainer {
+  padding:5% 20% 10%;
+  background-color:white;
+}
+
+.header{
+  background-color: brown;
+  padding-left:40%;
+  align-content: center;
+}
+
+.td, .tr{
+  border: 1px solid black;
+}
+
+.table{
+  width:100%;
+}

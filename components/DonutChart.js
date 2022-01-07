@@ -6,7 +6,7 @@ import {
 	Pie
 } from 'recharts';
 
-const ChartPie= (props) =>{
+const ChartDonut= (props) =>{
     
 
     return(
@@ -14,13 +14,13 @@ const ChartPie= (props) =>{
             <h1 className="text-heading">
                 No of users accessing different surveys
             </h1>
-             <ResponsiveContainer width="100%" aspect={3}>
-                 <PieChart margin={{ right: 300, top:10 }}>
+             <ResponsiveContainer width="100%" aspect={2}>
+                 <PieChart >
                     
-                    <Legend  layout="vertical" verticalAlign="top" align="right"  />
+                    <Legend  layout="horizontal" verticalAlign="top" align="center"  />
                     <Tooltip />
                     
-                <Pie  data={props.chartdata.data} label dataKey={props.chartdata.dataPlotterKey}  outerRadius={props.chartdata.outerRadius} />
+                <Pie  data={props.chartdata.data} label dataKey={props.chartdata.dataPlotterKey}  outerRadius={250} innerRadius={150} />
   
                     
                 </PieChart> 
@@ -29,4 +29,4 @@ const ChartPie= (props) =>{
 	);
 }
 
-export default ChartPie
+export default ChartDonut

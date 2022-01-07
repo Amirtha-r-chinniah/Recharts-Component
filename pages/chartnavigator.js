@@ -2,179 +2,224 @@
 import ChartLine from '../components/LineChart';
 import ChartArea from '../components/AreaChart';
 import ChartBar from '../components/BarChart';
-import { withRouter } from 'next/router';
 import ChartScatter from '../components/ScatterChart';
 import ChartPie from '../components/PieChart';
 import ChartRadialBar from '../components/RadialBarChart';
 import ChartFunnel from '../components/FunnelChart';
-function lineChartData({router:{query}}) {
-  if(query.chart=='Line'){
-  const lineChartData = 
+import ChartDonut from '../components/DonutChart';
+import ChartStackedBar from '../components/StackedBarChart';
+import { withRouter } from 'next/router';
+
+function lineChartData({ router: { query } }) {
+  if (query.chart == 'Line') {
+    const lineChartData =
     {
-      name: 'Finances',
-      xAxisKey: 'name',
-      lines:[{lineKey:'Balance', stroke:'black'},{lineKey:'saving', stroke:'red'}],    
-      data:[
-        {name: 'April', Balance: 48530, saving: 0},
-        {name: 'May', Balance: 50328, saving: 1798},
-        {name: 'June', Balance: 48573, saving: -1755},
-        {name: 'July', Balance: 48825, saving: 252}
+      xAxisKey: 'month',
+      yAxisLabel: 'No of Logins',
+      xAxisLabel: 'Months',
+      lines: [{ lineKey: 'CareerInsight', stroke: 'blue' }, { lineKey: 'ProgramInsight', stroke: 'green' }],
+      data: [
+        { month: 'April', ProgramInsight: 85, CareerInsight: 60 },
+        { month: 'May', ProgramInsight: 50, CareerInsight: 98 },
+        { month: 'June', ProgramInsight: 75, CareerInsight: 55 },
+        { month: 'July', ProgramInsight: 30, CareerInsight: 48 }
       ]
     };
-  return (<>
-      <ChartLine chartdata={lineChartData} ></ChartLine>  
+    return (<>
+      <ChartLine chartdata={lineChartData} ></ChartLine>
     </>
     )
   }
-  else if(query.chart=='Area'){
-    const areaChartData = 
+  else if (query.chart == 'Area') {
+    const areaChartData =
     {
-      name: 'Finances',
-      xAxisKey: 'name',
-      Areas:[{AreaKey:'x', stroke:'black'},{AreaKey:'y', stroke:'red'}],    
-      data:[
-        {name:"A", x:30, y:70},
-        {name:"B", x:12, y:88},
-        {name:"C", x:15, y:85},
-        {name:"D", x:35, y:65},
-        {name:"E", x:54, y:46},
-        {name:"F", x:72, y:28},
-        {name:"G", x:32, y:68}
+      xAxisKey: 'degreeLevel',
+      yAxisLabel: 'No of Firm logins',
+      Areas: [{ AreaKey: 'TexasUniversity', stroke: 'blue', fill:'blue' }, { AreaKey: 'DalhoussieUniversity', stroke: 'green', fill:'green' }],
+      data: [
+        { degreeLevel: "Associate's degree/less than Associates", TexasUniversity: 4000, DalhoussieUniversity: 2400 },
+        { degreeLevel: "High school/less than associate's", TexasUniversity: 3000, DalhoussieUniversity: 1398 },
+        { degreeLevel: "Associate's degree", TexasUniversity: 2000, DalhoussieUniversity: 9800 },
+        { degreeLevel: "Bachelor's degree", TexasUniversity: 2780, DalhoussieUniversity: 3908 },
+        { degreeLevel: "Master's degree", TexasUniversity: 1890, DalhoussieUniversity: 4800},
+        { degreeLevel: "Doctoral degree", TexasUniversity: 2390, DalhoussieUniversity: 3800 }
       ]
     };
-  return (<>
-      <ChartArea chartdata={areaChartData} ></ChartArea>  
+    return (<>
+      <ChartArea chartdata={areaChartData} ></ChartArea>
     </>
     )
   }
-  else if(query.chart=='Bar'){
-    const barChartData = 
+  else if (query.chart == 'Bar') {
+    const barChartData =
     {
-      name: 'Finances',
-      xAxisKey: 'name',
-      bars:[{barKey:'x', stroke:'black'},{barKey:'y', stroke:'red'}],    
-      data:[
-        {name:"A", x:30, y:70},
-        {name:"B", x:12, y:88},
-        {name:"C", x:15, y:85},
-        {name:"D", x:35, y:65},
-        {name:"E", x:54, y:46},
-        {name:"F", x:72, y:28},
-        {name:"G", x:32, y:68}
+      xAxisKey: 'validatePage',
+      yAxisLabel:'No Of PDF Exports',
+      bars: [{ barKey: 'TexasUniversity', stroke: 'black' }, { barKey: 'DalhoussieUniversity', stroke: 'red' }],
+      data: [
+        { validatePage: "Employment Potential", TexasUniversity: 30, DalhoussieUniversity: 70 },
+        { validatePage: "Competitor Landscape", TexasUniversity: 12, DalhoussieUniversity: 88 },
+        { validatePage: "Market Alignment", TexasUniversity: 15, DalhoussieUniversity: 85 },
+        { validatePage: "Key Competencies", TexasUniversity: 35, DalhoussieUniversity: 65 },
+        { validatePage: "Program score card", TexasUniversity: 54, DalhoussieUniversity: 46 }
       ]
     };
-  return (<>
-      <ChartBar chartdata={barChartData} ></ChartBar>  
+    return (<>
+      <ChartBar chartdata={barChartData} ></ChartBar>
     </>
     )
   }
-  else if(query.chart=='Pie'){
-    const pieChartData = 
+  else if (query.chart == 'StackedBar') {
+    const stackedbarChartData =
     {
-      name: 'Finances',
-      outerRadius:"250", 
-      dataPlotterKey:"students",
-      data:[
-        {name: 'Geeksforgeeks', students: 400, fill:'green'},
-        {name: 'Technical scripter', students: 700, fill: 'red'},
-        {name: 'Geek-i-knack', students: 200, fill:'blue'},
-        {name: 'Geek-o-mania', students: 1000, fill:'brown'}
+      xAxisKey: 'validatePage',
+      yAxisLabel:'No Of PDF Exports',
+      bars: [{ barKey: 'TexasUniversity', stroke: 'black' }, { barKey: 'DalhoussieUniversity', stroke: 'red' }],
+      stackId:'A',
+      data: [
+        { validatePage: "Employment Potential", TexasUniversity: 30, DalhoussieUniversity: 70 },
+        { validatePage: "Competitor Landscape", TexasUniversity: 12, DalhoussieUniversity: 88 },
+        { validatePage: "Market Alignment", TexasUniversity: 15, DalhoussieUniversity: 85 },
+        { validatePage: "Key Competencies", TexasUniversity: 35, DalhoussieUniversity: 65 },
+        { validatePage: "Program score card", TexasUniversity: 54, DalhoussieUniversity: 46 }
       ]
     };
-  return (<>
-      <ChartPie chartdata={pieChartData} ></ChartPie>  
+    return (<>
+      <ChartStackedBar chartdata={stackedbarChartData} ></ChartStackedBar>
     </>
     )
   }
-  else if(query.chart=='Scatter'){
-    const scatterChartData = 
+  else if (query.chart == 'Pie') {
+    const pieChartData =
     {
-      name: 'Finances',
-      scatterKeyXAxis:"x", 
-      scatterKeyYAxis:"y",    
-      fillColor:"green",
-      data:[
-        { x: 1, y: 23 },
-        { x: 2, y: 3 },
-        { x: 3, y: 15 },
-        { x: 4, y: 35 },
-        { x: 5, y: 45 },
-        { x: 6, y: 25 },
-        { x: 7, y: 17 },
-        { x: 8, y: 32 },
-        { x: 9, y: 43 },
+      outerRadius: "250",
+      dataPlotterKey: "users",
+      data: [
+        { name: 'AdultSurvey', users: 400, fill: 'green' },
+        { name: 'HybridSurvey', users: 700, fill: 'red' },
+        { name: 'TraditionalSurvey', users: 1000, fill: 'brown' }
       ]
     };
-  return (<>
-      <ChartScatter chartdata={scatterChartData} ></ChartScatter>  
+    return (<>
+      <ChartPie chartdata={pieChartData} ></ChartPie>
     </>
     )
   }
-  else if(query.chart=='RadialBar'){
-    const radialBarChartData = 
+  else if (query.chart == 'Donut') {
+    const donutChartData =
     {
-      name: 'Finances',
-      dataPlotterKey:"x",
-      data:[
-        {name:'A', x:1,fill:"green"},
-        {name:'B', x:2, fill:"yellow"},
-        {name:'C', x:3, fill:"aqua"},
-        {name:'D', x:4, fill: "blue"},
-        {name:'E', x:5, fill:"orange"},
-        {name:'F', x:6, fill:"red"},
-        {name:'G', x:7, fill:"black"},
-        {name:'H', x:8, fill:"purple"},
-        {name:'I', x:9, fill:"gray"}
+      outerRadius: "250",
+      dataPlotterKey: "users",
+      data: [
+        { name: 'AdultSurvey', users: 400, fill: 'green' },
+        { name: 'HybridSurvey', users: 700, fill: 'red' },
+        { name: 'TraditionalSurvey', users: 1000, fill: 'brown' }
       ]
     };
-  return (<>
-      <ChartRadialBar chartdata={radialBarChartData} ></ChartRadialBar>  
+    return (<>
+      <ChartDonut chartdata={donutChartData} ></ChartDonut>
     </>
     )
   }
-  else if(query.chart=='Funnel'){
-    const funnelChartData = 
+  else if (query.chart == 'Scatter') {
+    const scatterChartData =
     {
-      name: 'Finances',
-      dataPlotterKey:"value",
-      data:[
-        
-          {
-            "value": 100,
-            "name": "展现",
-            "fill": "#8884d8"
-          },
-          {
-            "value": 80,
-            "name": "点击",
-            "fill": "#83a6ed"
-          },
-          {
-            "value": 50,
-            "name": "访问",
-            "fill": "#8dd1e1"
-          },
-          {
-            "value": 40,
-            "name": "咨询",
-            "fill": "#82ca9d"
-          },
-          {
-            "value": 26,
-            "name": "订单",
-            "fill": "#a4de6c"
-          }
-        
+      color:[{fillcolor:'blue'},{fillcolor:'green'}],
+      yAxisLabel:'login count',
+      scatterKeyXAxis: 'Year' ,
+      scatterKeyYAxis: 'loginCount',
+      scatterNames:[{scatterName:"ProgramInsight"},{scatterName:"CareerInsight"}],
+      data:[    
+        [       
+        {  loginCount: 100, Year: 2022 },
+        {  loginCount: 250, Year: 2021 },
+        {  loginCount: 320, Year: 2020 },
+        {  loginCount: 120, Year: 2019 },
+        {  loginCount: 0, Year: 2018 },
+        {  loginCount: 50, Year: 2017 },
+        {  loginCount: 70, Year: 2016 },
+        {  loginCount: 8, Year: 2015 },
+        {  loginCount: 0, Year: 2014 },
+      ],
+      [
+        {  loginCount: 50, Year: 2022 },
+        {  loginCount: 20, Year: 2021 },
+        {  loginCount: 30, Year: 2020 },
+        {  loginCount: 120, Year: 2019 },
+        {  loginCount: 100, Year: 2018 },
+        {  loginCount: 500, Year: 2017 },
+        {  loginCount: 7, Year: 2016 },
+        {  loginCount: 80, Year: 2015 },
+        {  loginCount: 200, Year: 2014 },
         
       ]
+      ]
+    
     };
-  return (<>
-      <ChartFunnel chartdata={funnelChartData} ></ChartFunnel>  
+    return (<>
+      <ChartScatter chartdata={scatterChartData} ></ChartScatter>
     </>
     )
   }
-  else{
-      return "Amirtha"
+  else if (query.chart == 'RadialBar') {
+    const radialBarChartData =
+    {
+      dataPlotterKey: "users",
+      data: [
+        {name: 'Explore', users: 50, fill: "grey" },
+        {name: 'Validate', users: 20, fill: "yellow" },
+        {name: 'Portfolio', users: 80, fill: "aqua" }
+      ]
+    };
+    return (<>
+      <ChartRadialBar chartdata={radialBarChartData} ></ChartRadialBar>
+    </>
+    )
+  }
+  else if (query.chart == 'Funnel') {
+    const funnelChartData =
+    {
+      name: 'College',
+      dataPlotterKey: "value",
+      funnelLabel:"name",
+      data: [
+
+        {
+          "value": 100,
+          "name": "Software Engineer",
+          "fill": "#8884d8"
+        },
+        {
+          "value": 80,
+          "name": "Data Engineer",
+          "fill": "#83a6ed"
+        },
+        {
+          "value": 50,
+          "name": "HR",
+          "fill": "#8dd1e1"
+        },
+        {
+          "value": 40,
+          "name": "Support Engineer",
+          "fill": "#82ca9d"
+        },
+        {
+          "value": 1,
+          "name": "Nursing",
+          "fill": "#a4de6c"
+        }
+
+
+      ]
+    };
+    return (<>
+      <ChartFunnel chartdata={funnelChartData} ></ChartFunnel>
+    </>
+    )
+  }
+  else {
+    return "Not Found"
   }
 };
 export default withRouter(lineChartData);

@@ -1,33 +1,33 @@
 import React from 'react';
 import {
-	RadialBarChart,
-	ResponsiveContainer,
+    RadialBarChart,
+    ResponsiveContainer,
     Legend,
-	Tooltip,
-	RadialBar
+    Tooltip,
+    RadialBar
 } from 'recharts';
 
-const ChartRadialBar= (props) =>{
-    
+const ChartRadialBar = (props) => {
 
-    return(
-		<>
+
+    return (
+        <>
             <h1 className="text-heading">
                 Radial Bar Chart Using Rechart
             </h1>
-             <ResponsiveContainer width="100%" aspect={3}>
-                 <RadialBarChart  data={props.chartdata.data} margin={{ right: 300 }}>
-                    
-                    <Legend />
+            <ResponsiveContainer width="100%" aspect={3}>
+
+                <RadialBarChart data={props.chartdata.data} width={730} height={250} innerRadius="10%" outerRadius="80%" startAngle={180} endAngle={0}>
+
                     <Tooltip />
-                    
-                <RadialBar  dataKey={props.chartdata.dataPlotterKey} />
-  
-                    
-                </RadialBarChart> 
-            </ResponsiveContainer>  
+
+                    <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey={props.chartdata.dataPlotterKey} />
+                    <Legend layout="horizontal" verticalAlign="top" align="center" />
+
+                </RadialBarChart>
+            </ResponsiveContainer>
         </>
-	);
+    );
 }
 
 export default ChartRadialBar
