@@ -34,17 +34,17 @@ function lineChartData({ router: { query } }) {
     const areaChartData =
     {
       xAxisKey: 'days',
-      xAxisLabel: 'days',
-      Areas: [{ AreaKey: 'salary', stroke: '#0747A6', fill:'#0747A6' }],
+      yAxisLabel: 'No of Logins',
+      Areas: [{ AreaKey: 'login', stroke: '#0747A6', fill:'#0747A6' }],
       data: [
-        { days:'2021-12-11',salary:'400'},
-        { days:'2020-12-15', salary:'100'},
-        { days:'2021-12-19',salary:'100'},
-        { days:'2020-12-23', salary:'0'},
-        { days:'2021-12-27',salary:'500'},
-        { days:'2020-12-31', salary:'0'},
-        { days:'2021-01-04',salary:'100'},
-        { days:'2020-01-08', salary:'500'}
+        { days:'2021-12-11',login:'400'},
+        { days:'2020-12-15', login:'100'},
+        { days:'2021-12-19',login:'100'},
+        { days:'2020-12-23', login:'0'},
+        { days:'2021-12-27',login:'500'},
+        { days:'2020-12-31', login:'0'},
+        { days:'2021-01-04',login:'100'},
+        { days:'2020-01-08', login:'500'}
       ]
     };
     return (<>
