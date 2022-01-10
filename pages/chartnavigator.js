@@ -33,16 +33,18 @@ function lineChartData({ router: { query } }) {
   else if (query.chart == 'Area') {
     const areaChartData =
     {
-      xAxisKey: 'degreeLevel',
-      yAxisLabel: 'No of Firm logins',
-      Areas: [{ AreaKey: 'TexasUniversity', stroke: 'blue', fill:'blue' }, { AreaKey: 'DalhoussieUniversity', stroke: 'green', fill:'green' }],
+      xAxisKey: 'days',
+      xAxisLabel: 'days',
+      Areas: [{ AreaKey: 'salary', stroke: '#0747A6', fill:'#0747A6' }],
       data: [
-        { degreeLevel: "Associate's degree/less than Associates", TexasUniversity: 4000, DalhoussieUniversity: 2400 },
-        { degreeLevel: "High school/less than associate's", TexasUniversity: 3000, DalhoussieUniversity: 1398 },
-        { degreeLevel: "Associate's degree", TexasUniversity: 2000, DalhoussieUniversity: 9800 },
-        { degreeLevel: "Bachelor's degree", TexasUniversity: 2780, DalhoussieUniversity: 3908 },
-        { degreeLevel: "Master's degree", TexasUniversity: 1890, DalhoussieUniversity: 4800},
-        { degreeLevel: "Doctoral degree", TexasUniversity: 2390, DalhoussieUniversity: 3800 }
+        { days:'2021-12-11',salary:'400'},
+        { days:'2020-12-15', salary:'100'},
+        { days:'2021-12-19',salary:'100'},
+        { days:'2020-12-23', salary:'0'},
+        { days:'2021-12-27',salary:'500'},
+        { days:'2020-12-31', salary:'0'},
+        { days:'2021-01-04',salary:'100'},
+        { days:'2020-01-08', salary:'500'}
       ]
     };
     return (<>
