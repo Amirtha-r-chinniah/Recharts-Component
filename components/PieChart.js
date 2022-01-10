@@ -14,7 +14,7 @@ const ChartPie= (props) =>{
             <h1 className="text-heading">
                 No of users accessing different surveys
             </h1>
-             <ResponsiveContainer width="100%" aspect={3}>
+             <ResponsiveContainer width="100%" aspect={2}>
                  <PieChart >
                     
                     <Legend  layout="vertical" verticalAlign="top" align="right"  />
